@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: bropoints
+      hosts:
+        - localhost:27017
