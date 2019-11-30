@@ -10,7 +10,7 @@ class SlackAuthorizer
     x =  req.body.read
     if defined?(req.params['token']) and (req.params['token'] == ENV['SLACK_VERIFICATION_TOKEN'])
       @app.call(env)
-    elsif !(x.nil?) and !(x['event_id'].nil?)
+    elsif !(x.nil?) and !(x['type'].nil?)
       env['body'] = x
       @app.call(env)
     else
