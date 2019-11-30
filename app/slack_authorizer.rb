@@ -7,10 +7,13 @@ class SlackAuthorizer
   end
   def call(env)
     req = Rack::Request.new(env)
-    if req.params['token'] == ENV['SLACK_VERIFICATION_TOKEN']
+    x =  req.body.read
+    if defined?(req.params['token']) and (req.params['token'] == ENV['SLACK_VERIFICATION_TOKEN'])
+      @app.call(env)
+    elsif !(x.nil?) and !(x['event_id'].nil?)
+      env['body'] = x
       @app.call(env)
     else
-      puts "unauthorized reponse sent"
       UNAUTHORIZED_RESPONSE
     end
   end

@@ -5,6 +5,6 @@ require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 configure :development do
-  Mongoid.load!('./database.yml', :development)
+  Mongoid.load!('./db/database.yml', :development)
 end
 require_all 'app'

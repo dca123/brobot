@@ -10,7 +10,9 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
     bson (4.6.0)
+    chronic (0.10.2)
     concurrent-ruby (1.1.5)
+    diff-lcs (1.3)
     httparty (0.17.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -31,7 +33,23 @@ GEM
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
+    rake (13.0.1)
     require_all (3.0.0)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-expectations (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.0)
     sinatra (2.0.7)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -41,6 +59,8 @@ GEM
     tilt (2.0.10)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     zeitwerk (2.2.1)
 
 PLATFORMS
@@ -50,8 +70,12 @@ DEPENDENCIES
   httparty
   json
   mongoid
+  rack-test
+  rake
   require_all
+  rspec
   sinatra
+  whenever
 
 BUNDLED WITH
    1.17.3

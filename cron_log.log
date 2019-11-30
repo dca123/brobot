@@ -1,0 +1,32 @@
+post top successfull
+rake aborted!
+NameError: undefined local variable or method `token' for main:Object
+/home/devinda/Projects/brobot/Rakefile:12:in `block in <top (required)>'
+/home/devinda/.rvm/gems/ruby-2.6.3@brobot/gems/rake-13.0.1/exe/rake:27:in `<top (required)>'
+/home/devinda/.rvm/gems/ruby-2.6.3@brobot/bin/ruby_executable_hooks:24:in `eval'
+/home/devinda/.rvm/gems/ruby-2.6.3@brobot/bin/ruby_executable_hooks:24:in `<main>'
+Tasks: TOP => post_top5
+(See full trace by running task with --trace)
+post top successfull
+post top successfull
+post top successfull
+post top successfull
+post top ss
+post top ss
+post top ss
+post top ss
+post top ss
+rake aborted!
+NameError: undefined local variable or method `text' for main:Object
+Did you mean?  test
+/home/devinda/Projects/brobot/Rakefile:13:in `block in <top (required)>'
+/home/devinda/.rvm/gems/ruby-2.6.3@brobot/gems/rake-13.0.1/exe/rake:27:in `<top (required)>'
+/home/devinda/.rvm/gems/ruby-2.6.3@brobot/bin/ruby_executable_hooks:24:in `eval'
+/home/devinda/.rvm/gems/ruby-2.6.3@brobot/bin/ruby_executable_hooks:24:in `<main>'
+Tasks: TOP => post_top5
+(See full trace by running task with --trace)
+<@ldgyhp>: 443, <@jabfrc>: 440, <@riceat>: 412, <@eh263>: 324, <@tamzyk>: 298
+<@ldgyhp>: 443, <@jabfrc>: 440, <@riceat>: 412, <@eh263>: 324, <@tamzyk>: 298
+<@ldgyhp>: 443, <@jabfrc>: 440, <@riceat>: 412, <@eh263>: 324, <@tamzyk>: 298
+<@ldgyhp>: 443, <@jabfrc>: 440, <@riceat>: 412, <@eh263>: 324, <@tamzyk>: 298
+<@ldgyhp>: 443, <@jabfrc>: 440, <@riceat>: 412, <@eh263>: 324, <@tamzyk>: 298

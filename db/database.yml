@@ -4,3 +4,9 @@ development:
       database: bropoints
       hosts:
         - localhost:27017
+test:
+  clients:
+    default:
+      database: bropoints_test
+      hosts:
+        - localhost:27017
