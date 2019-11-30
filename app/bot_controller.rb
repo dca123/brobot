@@ -4,6 +4,7 @@ class BotController < Sinatra::Base
   helpers Sinatra::TopPoint
   use SlackAuthorizer
   BotID = 'UQQPR6YBT'
+  CHANNEL = 'C8WEM5VQT'
   post '/events' do
     res =  JSON.parse(env['body'])
     case res['type']
@@ -94,7 +95,7 @@ class BotController < Sinatra::Base
       sender = "@" + params['user_name']
       eventUser = User.find_or_create_by(username: params['user_id'])
       if reciever == sender
-        message = "https://slack.com/api/chat.postMessage?token=#{token}&channel=testchannel&as_user=1&link_names=1&text="
+        message = "https://slack.com/api/chat.postMessage?token=#{token}&channel=#{CHANNEL}&as_user=1&link_names=1&text="
         text = "#{sender} just tried to give themselves points lol !'"
         HTTParty.post("#{message}#{text}")
         "You can't give yourself points !"
@@ -103,13 +104,13 @@ class BotController < Sinatra::Base
       elsif points > eventUser.points
         "You only have #{eventUser.points} points left to award !"
       else
-        message = "https://slack.com/api/chat.postMessage?token=#{token}&channel=testchannel&as_user=1&link_names=1&text="
+        message = "https://slack.com/api/chat.postMessage?token=#{token}&channel=#{CHANNEL}&as_user=1&link_names=1&text="
         text = "#{sender} just gave #{reciever} #{points} points for '#{reason}'"
         res = HTTParty.post("#{message}#{text}")
         newPoint = Point.create(giver: sender, reciever: reciever, points:points, reason: reason, ts: Time.now, slack_ts: res['ts'])
         emoticons = ['grinning', 'hugging_face', 'star-struck']
         emoticons.each do |emotion|
-          emoticonMessage = "https://slack.com/api/reactions.add?token=#{token}&channel=C8W98HSMN&name=#{emotion}&timestamp=#{res['ts']}"
+          emoticonMessage = "https://slack.com/api/reactions.add?token=#{token}&channel=#{CHANNEL}&name=#{emotion}&timestamp=#{res['ts']}"
           HTTParty.post(emoticonMessage)
         end
         eventUser.update_attributes(points: eventUser.points - points)
@@ -125,7 +126,7 @@ class BotController < Sinatra::Base
       points = Point.where(reciever: username, :ts.gte => startDay).sum(:points)
       "<#{username}> got #{points} points since #{startDay.strftime('%m/%d/%Y')}"
     when "top"
-      message = "https://slack.com/api/chat.postMessage?token=#{token}&channel=testchannel&as_user=1&link_names=1&text="
+      message = "https://slack.com/api/chat.postMessage?token=#{token}&channel=#{CHANNEL}&as_user=1&link_names=1&text="
       text = topPointsString.to_s
       "Top 5 Delts for this week are - #{topPointsString}"
     else
